@@ -1,0 +1,27 @@
+language: node_js
+cache:
+    directories:
+        - node_modules
+        - ~/.npm
+
+node_js:
+    - '12'
+git:
+    depth: 3
+script:
+    -yarn test
+notifications:
+    email:
+        recipients:
+            - ricardo.ares1989@gmail.com
+        on_success: always
+        on_failure: always
+
+deploy:
+    provider: heroku
+    skip-cleanup: true
+    keep-history: true
+    api_key: 4d9832a0-4ed4-4e59-8da4-a69cd8ebf588
+    app: platzi-store-be
+    on:
+        repo: ricardoares1989/platzi-store-backend
